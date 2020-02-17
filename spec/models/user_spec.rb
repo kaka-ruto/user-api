@@ -4,13 +4,13 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  email      :string           default(""), not null
-#  first_name :string
-#  last_name  :string
-#  password   :string           default(""), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :bigint           not null, primary key
+#  email           :string           default(""), not null
+#  first_name      :string
+#  last_name       :string
+#  password_digest :string           default(""), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #
@@ -20,6 +20,8 @@
 RSpec.describe User, type: :model do
   it { should validate_presence_of :email }
   it { should validate_uniqueness_of :email }
+  it { should have_secure_password }
+  it { should validate_presence_of :password }
 
   context 'when email is valid' do
     it 'successfully creates the user' do
