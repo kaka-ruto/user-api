@@ -32,6 +32,8 @@ gem 'pry-byebug'
 gem 'pry-rails'
 gem 'pry-rescue'
 
+gem 'interactor-rails'
+
 group :development, :test do
   # TDD
   gem 'database_cleaner'
