@@ -11,7 +11,7 @@ class Mutations::Users::Delete < Mutations::BaseMutation
 
     result = ::Users::Delete.call(user: user)
 
-    if result.sucess?
+    if result.success?
       { message: result.message }
     else
       { errors: result.errors }
